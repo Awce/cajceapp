@@ -15,3 +15,18 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+(function($){
+  $(function(){
+    $('.button-collapse').sideNav();
+    $('.parallax').parallax();
+    $('.slider').slider({
+      full_width: true
+    });
+    $('.datepicker').pickadate({
+      selectMonths: true,
+      selectYears: 20
+    });
+    $('.materialboxed').materialbox();
+  });
+})(jQuery);
