@@ -1,0 +1,15 @@
+.row
+  .col.s12.center
+    %h4
+      = @service.name
+    %p
+      = image_tag @service.avatar.url, :class => "circle"
+
+    .blue-grey-text.text-lighten-2
+      = @service.description
+
+  .col.s12.center
+    %p
+    .card-action
+      = link_to 'Editar', edit_service_path(@service), :class => "btn"
+      = link_to 'Regresar', services_path, :class => "btn"
