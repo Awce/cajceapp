@@ -1,29 +1,17 @@
 .row
   .col.s12.center
     %h4 Nuestros servicios
+    - if user_signed_in?
+      %p
+        = link_to '+', new_service_path, :class=>"btn-floating btn-large waves-effect waves-light indigo"
+    - else
+      %p
 
-%table
-  %thead
-    %tr
-      %th
-      %th Name
-      %th Description
-      %th User
-      %th
-      %th
-      %th
 
-  %tbody
     - @services.each do |service|
-      %tr
-        %td= image_tag service.avatar.url(:medium), :class => "circle"
-        %td= service.name
-        %td= service.description
-        %td= service.user
-        %td= link_to 'Show', service
-        %td= link_to 'Edit', edit_service_path(service)
-        %td= link_to 'Destroy', service, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Service', new_service_path
+      .col.s6.m3.l2
+        .card-content
+          = link_to (image_tag service.avatar.url(:medium), :class => "circle waves-effect waves-light animated fadeIn"), service
+        .blue-grey-text.text-lighten-2.small.animated.zoomIn
+          = service.name
+        %p

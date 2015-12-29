@@ -1,15 +1,22 @@
+= render "services/header"
 .row
   .col.s12.center
     %h4
       = @service.name
     %p
-      = image_tag @service.avatar.url, :class => "circle"
+      = image_tag @service.avatar.url, :class => "circle animated fadeIn"
 
-    .blue-grey-text.text-lighten-2
+    .blue-grey-text.text-lighten-2.animated.zoomIn
       = @service.description
 
   .col.s12.center
     %p
     .card-action
-      = link_to 'Editar', edit_service_path(@service), :class => "btn"
-      = link_to 'Regresar', services_path, :class => "btn"
+      - if user_signed_in?
+        = link_to 'Editar', edit_service_path(@service), :class => "waves-effect waves-teal btn indigo"
+        = link_to 'Regresar', services_path, :class => "waves-effect waves-teal btn indigo"
+        = link_to 'Eliminar', service_path, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "waves-effect waves-teal btn red"
+      - else
+        = link_to 'Regresar', services_path, :class => "waves-effect waves-teal btn indigo"
+        
+  = render "home/contact"

@@ -1,0 +1,31 @@
+= render "services/header"
+.row
+  .col.s12.center
+    %h4
+      = @work.name
+    .card
+      %p
+        %b
+          = @work.company
+      %p
+        %b Progreso:
+        = @work.progress
+      %p
+        %b Fecha de inicio:
+        = @work.date_ini
+      %p
+        %b Fecha de termino:
+        = @work.date_end
+      %p
+        %b Servicios:
+        = @work.service
+
+  .col.s12.center
+    %p
+    .card-action
+      - if user_signed_in?
+        = link_to 'Editar', edit_work_path(@work), :class => "waves-effect waves-teal btn indigo"
+        = link_to 'Regresar', works_path, :class => "waves-effect waves-teal btn indigo"
+        = link_to 'Eliminar', work_path, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "waves-effect waves-teal btn red"
+      - else
+        = link_to 'Regresar', works_path, :class => "waves-effect waves-teal btn indigo"

@@ -1,0 +1,30 @@
+.row
+  .col.s12.center
+    %h4 Nuestras obras
+    - if user_signed_in?
+      %p
+        = link_to '+', new_work_path, :class=>"btn-floating btn-large waves-effect waves-light indigo"
+    - else
+      %p
+
+%table.highlight.responsive-table.centered
+  %thead
+    %tr
+      %th
+      %th Obra
+      %th Empresa
+      %th Progreso
+      %th Fecha de inicio
+      %th Fecha de termino
+      %th Servicios
+
+  %tbody
+    - @works.each do |work|
+      %tr
+        %td= link_to 'Ver', work
+        %td= work.name
+        %td= work.company
+        %td= work.progress
+        %td= work.date_ini
+        %td= work.date_end
+        %td= work.service
