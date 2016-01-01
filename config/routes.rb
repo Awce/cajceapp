@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :services
   devise_for :users
 
+  get 'home/contact', as: :contact
+  get 'home/about', as: :about
+
   authenticated :user do
     root 'home#register'
   end

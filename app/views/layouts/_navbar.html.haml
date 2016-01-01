@@ -1,13 +1,13 @@
 .navbar-fixed
   %nav.indigo
     .nav-wrapper
-      = link_to (image_tag"logo.png", :alt=> "logo", :class=> "brand-logo logo-container responsive-img", :id=> "logo")
+      = link_to (image_tag"logo.png", :alt=> "logo", :class=> "brand-logo logo-container responsive-img", :id=> "logo"), "#"
       %ul.right.hide-on-med-and-down
         %li
-          = link_to "Acerca de Nosotros"
+          = link_to "Acerca de Nosotros", about_path
         %li
           = link_to "Servicios", services_path
         %li
           = link_to "Obras", works_path
         %li
-          = link_to "Contáctanos"
+          = link_to "Contáctanos", contact_path
